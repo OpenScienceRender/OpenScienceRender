@@ -1,3 +1,6 @@
+newick:
+  :include: :none
+  :script: ruby ../phylo-renderer/phylo-renderer
 test-image:
   :include: <img src="%s" />
   :script: cat
