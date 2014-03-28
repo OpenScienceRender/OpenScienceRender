@@ -1,0 +1,3 @@
+If your renderer has any static files please symlink the directories (or the
+files themselves) into this directory.
+

@@ -11,6 +11,10 @@ class OpenScienceRender < Sinatra::Base
     @renderers = load_renderers
   end
 
+  configure do
+    set :root, File.join(File.dirname(__FILE__), "..")
+  end
+
   get "/view/:type" do |type|
     renderer = @renderers[type] || @renderers["default"]
     if renderer[:include] == :inline
