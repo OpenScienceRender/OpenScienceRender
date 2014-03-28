@@ -17,13 +17,15 @@ class OpenScienceRender < Sinatra::Base
 
   get "/view/:type" do |type|
     renderer = @renderers[type] || @renderers["default"]
-    if renderer[:include] == :inline
-      content = `#{renderer[:script]} #{request[:url]}`
-    else
-      content = renderer[:include] % "/render/#{type}?url=#{request[:url]}"
-    end
+    content = case renderer[:include]
+              when :inline
+              when :none
+                `#{renderer[:script]} #{request[:url]}`
+              else
+                renderer[:include] % "/render/#{type}?url=#{request[:url]}"
+              end
 
-    "<html><body>#{content}</body></html>"
+    renderer[:include] == :none ? content : "<html><body>#{content}</body></html>"
   end
 
   get "/render/:type" do |type|
