@@ -12,6 +12,10 @@ test/tmp
 test/version_tmp
 tmp
 
+# Eclipse
+.project
+.buildpath
+
 # YARD artifacts
 .yardoc
 _yardoc
