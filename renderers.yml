@@ -1,0 +1,6 @@
+test-image:
+  :include: <img src="%s" />
+  :script: cat
+default:
+  :include: :inline
+  :script: ruby renderers/dummy-renderer

@@ -1,0 +1,2 @@
+
+puts "Dummy renderer. URL = #{ARGV[0]}"
