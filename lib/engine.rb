@@ -12,6 +12,7 @@ class OpenScienceRender < Sinatra::Base
   end
 
   configure do
+    disable :protection
     set :root, File.join(File.dirname(__FILE__), "..")
   end
 
